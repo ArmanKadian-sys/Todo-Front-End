@@ -8,11 +8,11 @@ const TodoItems=()=>{
   const Delete=(event)=>{
     const id=event.target.value;
 
-    fetch(`http://localhost:3000/deleteItem/${id}`, {
+    fetch(`http://todo-backend007.azurewebsites.net/deleteItem/${id}`, {
       method: 'DELETE'
     })
     .then(() => {
-      fetch("http://localhost:3000/getItems").then((res)=>{
+      fetch("http://todo-backend007.azurewebsites.net/getItems").then((res)=>{
       return res.json()
       }).then((result)=>{
       const newTodo=result.map((item)=>{return {text: item.activity, date: item.date, id: item._id, completed:item.completed}})
@@ -29,7 +29,7 @@ const TodoItems=()=>{
     const completed=event.target.checked;
 
 
-    fetch(`http://localhost:3000/updateItem/${id}`, {
+    fetch(`http://todo-backend007.azurewebsites.net/updateItem/${id}`, {
       method: 'PATCH',
       headers: {
     'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ const TodoItems=()=>{
       body:JSON.stringify({completed})
     })
     .then(() => {
-      fetch("http://localhost:3000/getItems").then((res)=>{
+      fetch("http://todo-backend007.azurewebsites.net/getItems").then((res)=>{
       return res.json()
       }).then((result)=>{
       const newTodo=result.map((item)=>{return {text: item.activity, date: item.date, id: item._id, completed:item.completed}})
