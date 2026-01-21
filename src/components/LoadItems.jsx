@@ -6,7 +6,7 @@ const LoadItems=()=>{
 
   useEffect(()=>{
 
-    fetch("http://todo-backend007.azurewebsites.net/getItems").then((res)=>{
+    fetch("https://todo-backend007.azurewebsites.net/getItems").then((res)=>{
       return res.json()
     }).then((result)=>{
       console.log(result);

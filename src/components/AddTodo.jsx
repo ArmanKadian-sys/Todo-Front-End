@@ -8,7 +8,7 @@ const AddTodo=()=>{
   const date=useRef();
   const inputHandler=async()=>{
      try{
-      const result= await fetch("http://todo-backend007.azurewebsites.net/postItems", {
+      const result= await fetch("https://todo-backend007.azurewebsites.net/postItems", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -19,7 +19,7 @@ const AddTodo=()=>{
       catch(error){
         console.log(error);
       }
-    fetch("http://todo-backend007.azurewebsites.net/getItems").then((res)=>{
+    fetch("https://todo-backend007.azurewebsites.net/getItems").then((res)=>{
       return res.json()
       }).then((result)=>{
       const newTodo=result.map((item)=>{return {text: item.activity, date: item.date, id: item._id, completed:item.completed}})
